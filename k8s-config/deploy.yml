@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: myweb-server
+  labels: 
+    app: webserver
+spec: 
+  replicas: 3
+  selector: 
+    matchLabels: 
+      app: webserver
+  template: 
+    metadata: 
+      labels: 
+        app: webserver
+      name: myweb-server
+    spec: 
+      containers: 
+        - image: moizalimoomin/webserver
+          imagePullPolicy: Always
+          name: myweb-server
+          ports: 
+            - containerPort: 80
