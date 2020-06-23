@@ -1,5 +1,9 @@
 FROM ubuntu
 
+echo "Asia/Kolkata" > /etc/timezone
+rm -f /etc/localtime
+dpkg-reconfigure -f noninteractive tzdata
+
 RUN apt-get update \
  && apt-get install openssh-server -y \
  && apt-get install openjdk-8-jdk -y \
