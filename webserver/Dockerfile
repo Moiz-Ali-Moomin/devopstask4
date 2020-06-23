@@ -1,7 +1,7 @@
 FROM ubuntu
-echo "Asia/Kolkata" > /etc/timezone
-rm -f /etc/localtime
-dpkg-reconfigure -f noninteractive tzdata
+RUN echo "Asia/Kolkata" > /etc/timezone
+RUN rm -f /etc/localtime
+RUN dpkg-reconfigure -f noninteractive tzdata
 RUN apt-get update \
  && apt-get install apache2 -y \
  && apt-get install apache2-utils -y \
