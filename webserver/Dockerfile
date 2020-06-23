@@ -1,8 +1,7 @@
 FROM ubuntu
-RUN echo "Asia/Kolkata" > /etc/timezone
-RUN rm -f /etc/localtime
-RUN dpkg-reconfigure -f noninteractive tzdata
+RUN DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update \
+ && apt-get install tzdata -y \
  && apt-get install apache2 -y \
  && apt-get install apache2-utils -y \
  && apt-get clean
